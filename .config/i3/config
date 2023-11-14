@@ -194,4 +194,3 @@ bindsym Control+$mod+g exec "google-chrome --password-store=gnome-libsecret"
 bindsym Control+$mod+p exec "gnome-screenshot -i"
 exec --no-startup-id blueman-applet &
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id "export ZDOTDIR=$HOME/.config/zsh"
