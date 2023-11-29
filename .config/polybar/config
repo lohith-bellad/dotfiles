@@ -49,15 +49,15 @@ padding = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Hack Nerd Font:style=Regular:size=15;4
-font-1 = Hack Nerd Font:style=Regular:size=14;4
-font-2 = Hack Nerd Font:style=Bold:size=14;4
-font-3 = Hack Nerd Font:style=Regular:size=15;5
-font-4 = Hack Nerd Font:style=Regular:size=13;4
+font-0 = Ubuntu Nerd Font:style=Regular:size=15;4
+font-1 = Ubuntu Nerd Font:style=Regular:size=14;4
+font-2 = Ubuntu Nerd Font:style=Bold:size=14;4
+font-3 = Ubuntu Nerd Font:style=Regular:size=15;5
+font-4 = Ubuntu Nerd Font:style=Regular:size=13;4
 
 ;modules-center = workspaces
-modules-left = launcher i3
-modules-right = title temperature filesystem microphone-mute cpu microphone-recording pulseaudio network battery date 
+modules-left = launcher i3 title
+modules-right = brightnessctl temperature filesystem microphone-mute microphone-recording pulseaudio cpu memory network eth battery date 
 
 wm-restack = i3
 cursor-click = pointer
@@ -65,9 +65,9 @@ cursor-click = pointer
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-separator = |
-spacing = 0
-dim-value = 1.0
+separator = " | "
+spacing = 2
+dim-value = 5.0
 wm-name =
 locale =
 
