@@ -164,7 +164,7 @@ colors:
   # Whether or not `window.opacity` applies to all cell backgrounds or only to
   # the default background. When set to `true` all cells will be transparent
   # regardless of their background color.
-  #transparent_background_colors: false
+  transparent_background_colors: false
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -172,7 +172,7 @@ colors:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
+  save_to_clipboard: false
 
 cursor:
   # Cursor style
@@ -203,12 +203,12 @@ cursor:
   #vi_mode_style: None
 
   # Cursor blinking interval in milliseconds.
-  #blink_interval: 750
+  blink_interval: 500
 
   # Time after which cursor stops blinking, in seconds.
   #
   # Specifying '0' will disable timeout for blinking.
-  #blink_timeout: 5
+  blink_timeout: 30
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
