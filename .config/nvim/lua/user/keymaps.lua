@@ -20,30 +20,26 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-Left>", "<C-w>h", opts)
-keymap("n", "<C-Down>", "<C-w>j", opts)
-keymap("n", "<C-Up>", "<C-w>k", opts)
-keymap("n", "<C-Right>", "<C-w>l", opts)
-keymap("n", "<C-v>", ":vsplit<CR>",  opts)
-keymap("n", "<C-s>", ":split<CR>",  opts)
+keymap("n", "<S-Left>", "<C-w>h", opts)
+keymap("n", "<S-Down>", "<C-w>j", opts)
+keymap("n", "<S-Up>", "<C-w>k", opts)
+keymap("n", "<S-Right>", "<C-w>l", opts)
+keymap("n", "<S-v>", ":vsplit<CR>",  opts)
+keymap("n", "<S-s>", ":split<CR>",  opts)
 
 -- Resize with arrows
-keymap("n", "<C-h>", ":resize -2<CR>", opts)
-keymap("n", "<C-l>", ":resize +2<CR>", opts)
-keymap("n", "<C-j>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-k>", ":vertical resize +2<CR>", opts)
+keymap("n", "<A-h>", ":resize -2<CR>", opts)
+keymap("n", "<A-l>", ":resize +2<CR>", opts)
+keymap("n", "<A-j>", ":vertical resize -2<CR>", opts)
+keymap("n", "<A-k>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
--- Insert --
--- Press jk fast to exit insert mode 
-keymap("i", "jk", "<ESC>", opts)
+keymap("n", "<C-j>", "<Esc>:m .+1<CR>==gi", opts)
+keymap("n", "<C-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -51,8 +47,8 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "<S-j>", ":m .+1<CR>==", opts)
+keymap("v", "<S-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
@@ -62,8 +58,23 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-keymap("n", "<A-f>", "<cmd>Telescope find_files<cr>", opts)
--- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>f", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- File Navigator --
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
+-- Telescope bindings
+keymap("n", "\\s", "<cmd>Telescope lsp_references<CR>", opts)
+keymap("n", "\\g", "<cmd>Telescope lsp_definitions<CR>", opts)
+keymap("n", "\\a", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+keymap("n", "\\x", "<cmd>Telescope jumplist<CR>", opts)
+keymap("n", "<S-f>", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>f", "<cmd>Telescope live_grep<CR>", opts)
+
+-- Portal bindings
+keymap("n", "\\w", "<cmd>Portal jumplist forward<CR>", opts)
+keymap("n", "\\q", "<cmd>Portal jumplist backward<CR>", opts)
+
+-- Cscope bindings
+keymap("n", "<]s>", [[<cmd>exe "Cscope find s" expand("<cword>")<CR>]], opts) -- find all references
+keymap("n", "<]g>", [[<cmd>exe "Cscope find g" expand("<cword>")<CR>]], opts) -- find global definition
+keymap("n", "<]t>", [[<cmd>exe "Cscope find t" expand("<cword>")<CR>]], opts) -- find string
+keymap("n", "<]b>", "<cmd>Cscope build<CR>", opts) -- build cscope

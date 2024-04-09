@@ -7,5 +7,7 @@ require('user.lsp')
 require('user.telescope')
 require('user.gitsigns')
 require('user.treesitter')
-require('user.nvim-tree')
 require('user.lualine')
+require('user.cscope_maps')
+require('user.portal')
+require'nvim-tree'.setup {}

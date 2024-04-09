@@ -82,6 +82,19 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
+  -- cscope
+  use "dhananjaylatkar/cscope_maps.nvim"
+
+  -- Portal
+  use {
+    "cbochs/portal.nvim",
+    -- Optional dependencies
+    requires = {
+        "cbochs/grapple.nvim",
+        "ThePrimeagen/harpoon"
+    },
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
