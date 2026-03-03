@@ -6,7 +6,8 @@ return {
                 importPrefix = "self",
             },
             cargo = {
-                loadOutDirsFromCheck = true
+		allFeatures = true,
+                loadOutDirsFromCheck = true,
             },
             procMacro = {
                 enable = true

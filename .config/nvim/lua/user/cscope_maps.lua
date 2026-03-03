@@ -19,7 +19,8 @@ require'cscope_maps'.setup {
     -- "true" does not open picker for single result, just JUMP
     skip_picker_for_single_result = true, -- "false" or "true"
     -- these args are directly passed to "cscope -f <db_file> <args>"
-    db_build_cmd_args = { "-Rbqkv" },
+    -- db_build_cmd_args = { "-Rbqkv" },
+    db_build_cmd = { args = { "-Rbqkv" } },
     -- statusline indicator, default is cscope executable
     statusline_indicator = nil,
     -- try to locate db_file in parent dir(s)

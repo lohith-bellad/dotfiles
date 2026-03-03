@@ -78,6 +78,11 @@ telescope.setup {
     },
   },
   pickers = {
+    find_files = {
+      previewer = false,
+      path_display = { "filename_first" },
+    },
+
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,

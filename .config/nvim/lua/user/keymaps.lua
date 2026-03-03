@@ -27,6 +27,8 @@ keymap("n", "<S-Right>", "<C-w>l", opts)
 keymap("n", "<S-v>", ":vsplit<CR>",  opts)
 keymap("n", "<S-s>", ":split<CR>",  opts)
 
+keymap('t', '<Esc>', '<C-\\><C-n>', { silent = true })
+
 -- Resize with arrows
 keymap("n", "<A-h>", ":resize -2<CR>", opts)
 keymap("n", "<A-l>", ":resize +2<CR>", opts)
@@ -66,15 +68,21 @@ keymap("n", "\\s", "<cmd>Telescope lsp_references<CR>", opts)
 keymap("n", "\\g", "<cmd>Telescope lsp_definitions<CR>", opts)
 keymap("n", "\\a", "<cmd>Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "\\x", "<cmd>Telescope jumplist<CR>", opts)
-keymap("n", "<S-f>", "<cmd>Telescope find_files<CR>", opts)
+--keymap("n", "<S-f>", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>c", "<cmd>ClaudeCode<CR>", opts)
+keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<S-f>", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>", opts)
 
 -- Portal bindings
 keymap("n", "\\w", "<cmd>Portal jumplist forward<CR>", opts)
 keymap("n", "\\q", "<cmd>Portal jumplist backward<CR>", opts)
 
 -- Cscope bindings
-keymap("n", "<]s>", [[<cmd>exe "Cscope find s" expand("<cword>")<CR>]], opts) -- find all references
-keymap("n", "<]g>", [[<cmd>exe "Cscope find g" expand("<cword>")<CR>]], opts) -- find global definition
-keymap("n", "<]t>", [[<cmd>exe "Cscope find t" expand("<cword>")<CR>]], opts) -- find string
-keymap("n", "<]b>", "<cmd>Cscope build<CR>", opts) -- build cscope
+keymap("n", "]s", [[<cmd>exe "Cscope find s" expand("<cword>")<CR>]], opts) -- find all references
+keymap("n", "]g", [[<cmd>exe "Cscope find g" expand("<cword>")<CR>]], opts) -- find global definition
+keymap("n", "]t", [[<cmd>exe "Cscope find t" expand("<cword>")<CR>]], opts) -- find string
+keymap("n", "]b", [[<cmd>exe "Cscope db build"<CR>]], opts) -- build cscope
+
+-- Avante bindings
+keymap("n", "<leader>a", ":lua require('avante').ask()<CR>", opts)

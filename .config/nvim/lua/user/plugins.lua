@@ -44,14 +44,15 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use 'nvim-tree/nvim-web-devicons'
+  use 'nvim-tree/nvim-tree.lua'
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
   use "lunarvim/onedarker.nvim"
   use "folke/tokyonight.nvim"
   use "tiagovla/tokyodark.nvim"
+  use "sainnhe/gruvbox-material"
 
     -- completion plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -66,7 +67,16 @@ return packer.startup(function(use)
 
     -- LSP plugins
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "williamboman/mason.nvim" -- simple to use language server installer
+  use "williamboman/mason-lspconfig.nvim" -- bridge between mason and lspconfig
+
+  -- Rust
+  use 'mrcjkb/rustaceanvim'
+
+  -- DAP (debugging)
+  use "mfussenegger/nvim-dap"
+  use { "rcarriga/nvim-dap-ui", tag = "v3.9.3" }
+  use "jay-babu/mason-nvim-dap.nvim" -- auto-install debug adapters via mason
 
     -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -75,8 +85,10 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
 
     --Treesitter
-  use "nvim-treesitter/nvim-treesitter"
-  use "p00f/nvim-ts-rainbow"
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate"
+  }
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -94,6 +106,30 @@ return packer.startup(function(use)
         "ThePrimeagen/harpoon"
     },
   }
+
+  -- Cursor line
+  use "yamatsum/nvim-cursorline"
+
+  -- Required plugins
+  use 'MunifTanjim/nui.nvim'
+  use 'MeanderingProgrammer/render-markdown.nvim'
+
+  -- Optional dependencies
+  use 'HakonHarnes/img-clip.nvim'
+  use 'zbirenbaum/copilot.lua'
+  use 'stevearc/dressing.nvim' -- for enhanced input UI
+  use 'folke/snacks.nvim' -- for modern input UI
+  use { 'folke/trouble.nvim', tag = 'v3.7.1' }
+
+  -- Avante.nvim with build process
+  use {
+    'yetone/avante.nvim',
+    branch = 'main',
+    run = 'make',
+  }
+
+  -- Claudecode nvim plgin
+  use "coder/claudecode.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
